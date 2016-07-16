@@ -11,7 +11,7 @@ node {
 
     stage 'Build image and deploy in Dev'
     echo 'Building docker image and deploying to Dev'
-    buildAloha('helloworld-msa-dev')
+    buildAloha('microservices-dev')
 
     stage 'Automated tests'
     echo 'This stage simulates automated tests'
@@ -19,14 +19,14 @@ node {
 
     stage 'Deploy to QA'
     echo 'Deploying to QA'
-    deployAloha('helloworld-msa-dev', 'helloworld-msa-qa')
+    deployAloha('microservices-dev', 'microservices-qa')
 
     stage 'Wait for approval'
     input 'Aprove to production?'
 
     stage 'Deploy to production'
     echo 'Deploying to production'
-    deployAloha('helloworld-msa-dev', 'helloworld-msa')
+    deployAloha('microservices-dev', 'microservices')
 }
 
 // Creates a Build and triggers it
